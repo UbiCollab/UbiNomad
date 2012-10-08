@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroller"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+<TextView 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/space_name_input_text"
+    />
+ <EditText
+        android:id="@+id/space_name_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+ <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/description_input_text"
+    />
+ <EditText
+        android:id="@+id/description_input"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+ <Button
+    android:id="@+id/set_parent_space_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/parent_space_button"/>
+  <TextView  
+  	android:id="@+id/parent_space_textview"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/description_input_text"
+    />
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+<Button
+    android:id="@+id/save_space_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/save_space_button"/>
+<Button
+    android:id="@+id/cancel_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/cancel_button"/>
+     </LinearLayout> 
+</LinearLayout>
+</ScrollView>

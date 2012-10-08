@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	Licensed to UbiCollab.org under one or more contributor
+	license agreements.  See the NOTICE file distributed 
+	with this work for additional information regarding
+	copyright ownership. UbiCollab.org licenses this file
+	to you under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance
+	with the License. You may obtain a copy of the License at
+	
+	    http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the License is distributed on an
+	"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+	KIND, either express or implied.  See the License for the
+	specific language governing permissions and limitations
+	under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:orientation="vertical" android:background="#404040">
+
+
+
+	<!-- Gallery -->
+	<LinearLayout 
+		android:id="@+id/my_spaces_layout_top" android:orientation="vertical"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_alignParentTop="true">
+		<Gallery xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/my_spaces_gallery" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:paddingTop="11dp"
+			android:paddingBottom="11dp" />
+		<View android:background="#FFFFFF" android:layout_width="fill_parent"
+			android:layout_height="2dip" />
+	</LinearLayout>
+
+	<!-- Results list -->
+	<ListView android:id="@+id/my_spaces_space_list" android:layout_width="fill_parent"
+		android:cacheColorHint="#404040" android:layout_height="fill_parent"
+		android:layout_marginBottom="70dip" />
+
+
+	<!-- Controls -->
+	<RelativeLayout android:layout_marginTop="-70dip" android:layout_height="70dp"
+		android:layout_alignParentBottom="true" 
+		android:background="#888888" android:layout_width="fill_parent">
+
+		<!-- Horizontal line break -->
+		<View android:background="#FFFFFF" android:layout_width="fill_parent"
+			android:layout_height="1dip" android:layout_alignParentTop="true" />
+
+		<LinearLayout android:layout_height="fill_parent"
+			android:paddingRight="15dp" android:orientation="horizontal"
+			android:paddingLeft="15dp" android:paddingTop="7dp"
+			android:paddingBottom="7dp" android:layout_width="fill_parent"
+			android:gravity="center">
+
+			<!-- Add space (debug) button -->
+			<Button android:id="@+id/my_spaces_home" android:text="UbiNomad"
+				android:onClick="UbiNomad" android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+			</Button>
+
+		</LinearLayout>
+	</RelativeLayout>
+
+</LinearLayout>
+
+<!-- Search box -->
+<!-- android:layout_alignParentBottom="true" <LinearLayout android:orientation="horizontal" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:padding="5dp"> 
+	<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" 
+	android:text="Find" /> <AutoCompleteTextView android:id="@+id/autocomplete_country" 
+	android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp"/> 
+	</LinearLayout> -->

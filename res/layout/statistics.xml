@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Licensed to UbiCollab.org under one or more contributor
+	license agreements.  See the NOTICE file distributed 
+	with this work for additional information regarding
+	copyright ownership. UbiCollab.org licenses this file
+	to you under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance
+	with the License. You may obtain a copy of the License at
+	
+	    http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the License is distributed on an
+	"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+	KIND, either express or implied.  See the License for the
+	specific language governing permissions and limitations
+	under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:orientation="horizontal"
+		android:padding="10dp" android:layout_margin="10dp"
+		android:layout_marginTop="20dp" android:background="@drawable/screen_background">
+
+		<LinearLayout android:background="#FFFFFF" android:id="@+id/statistics"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:orientation="vertical">
+
+			<LinearLayout android:id="@+id/log_view"
+				android:layout_height="100dip" android:layout_width="fill_parent"
+				android:orientation="vertical" android:layout_weight="1"
+				android:cacheColorHint="#FFFFFF">
+				<ListView android:layout_width="fill_parent" android:id="@+id/spaces_list"
+					android:cacheColorHint="#FFFFFF" android:layout_weight="1"
+					android:layout_height="match_parent">
+				</ListView>
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/most_visited_view"
+				android:layout_height="wrap_content" android:layout_width="fill_parent"
+				android:orientation="vertical">
+				<TextView android:text="Mostly used space:"
+					android:paddingTop="20dp" android:layout_gravity="left"
+					android:textSize="18dp" android:textStyle="bold" android:id="@+id/most_used"
+					android:background="#FFFFFF" android:textColor="#404040"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+				<TextView android:text="" android:id="@+id/most_used_txt"
+					android:background="#FFFFFF" android:textColor="#404040"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+			</LinearLayout>
+
+			<LinearLayout android:id="@+id/log_view"
+				android:orientation="horizontal" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:baselineAligned="true"
+				android:layout_weight="1">
+				<ImageView android:layout_height="fill_parent" android:id="@+id/most_used1"
+					android:src="@drawable/icon" android:layout_width="wrap_content"
+					android:layout_gravity="center" />
+			</LinearLayout>
+
+			<View android:layout_height="1dip" android:layout_width="fill_parent"
+				android:padding="4dp" android:background="#888888" />
+
+			<LinearLayout android:id="@+id/full_statistics"
+				android:visibility="invisible" android:layout_height="wrap_content"
+				android:layout_width="match_parent" android:orientation="horizontal"
+				android:layout_weight="1">
+				<Button android:id="@+id/show_full" android:text="Full statistics"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_weight="1">
+				</Button>
+			</LinearLayout>
+
+			<LinearLayout android:visibility="invisible"
+				android:id="@+id/full_statistics_for_real" android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:baselineAligned="true">
+
+				<LinearLayout android:id="@+id/LinearLayout01"
+					android:layout_width="fill_parent" android:layout_weight="1"
+					android:layout_height="match_parent">
+					<!-- matchparent -->
+					<LinearLayout android:id="@+id/pie_container"
+						android:layout_width="fill_parent" android:layout_height="wrap_content"
+						android:orientation="vertical">
+
+					</LinearLayout>
+				</LinearLayout>
+
+				<LinearLayout android:layout_height="fill_parent"
+					android:layout_width="fill_parent" android:layout_weight="1"
+					android:id="@+id/LinearLayout01" android:orientation="horizontal">
+					<TextView android:id="@+id/spaces_pie" android:paddingTop="20dp"
+						android:textSize="15dp" android:textColor="#404040"
+						android:layout_width="wrap_content" android:text=""
+						android:layout_height="wrap_content" android:layout_weight="1" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

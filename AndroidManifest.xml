@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	Licensed to UbiCollab.org under one or more contributor
+	license agreements.  See the NOTICE file distributed 
+	with this work for additional information regarding
+	copyright ownership. UbiCollab.org licenses this file
+	to you under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance
+	with the License. You may obtain a copy of the License at
+	
+	    http://www.apache.org/licenses/LICENSE-2.0
+	
+	Unless required by applicable law or agreed to in writing,
+	software distributed under the License is distributed on an
+	"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+	KIND, either express or implied.  See the License for the
+	specific language governing permissions and limitations
+	under the License.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="org.ubicollab.nomad" android:versionCode="1"
+	android:versionName="1.0">
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<!-- camera permissions -->
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-feature android:name="android.hardware.camera" />
+	<uses-feature android:name="android.hardware.camera.autofocus" />
+	<!-- <uses-library android:name="com.google.android.maps" /> -->
+
+	<application android:icon="@drawable/icon" android:label="@string/app_name"
+		android:debuggable="true">
+
+		<!-- (BOF) MAIN APPLICATION ACTIVITY -->
+		<activity android:name="Nomad" android:label="@string/app_name"
+			android:theme="@android:style/Theme.NoTitleBar" android:launchMode="singleTask"></activity>
+		<!-- android:theme="@android:style/Theme.NoTitleBar" -->
+		<activity android:name="Nomad" android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<!-- (EOF) MAIN APPLICATION ACTIVITY -->
+
+
+		<!-- (BOF) WIDGET -->
+		<!-- Broadcast Receiver that will process AppWidget updates -->
+		<receiver android:name=".widget.ButtonWidget" android:label="@string/app_name">
+			<intent-filter>
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+				<!-- Broadcast Receiver that will also process our self created action -->
+				<action android:name="org.ubicollab.nomad" />
+				<action android:name="android.widget.buttons.ButtonWidget.ACTION_WIDGET_RECEIVER" />
+				<activity android:name=".widget.ButtonWidget$WidgetUpdateService"></activity>
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider"
+				android:resource="@xml/button_widget_provider" />
+		</receiver>
+		<!-- this activity will be called, when we fire our self created ACTION_WIDGET_CONFIGURE -->
+		<activity android:name=".widget.ButtonWidget">
+			<intent-filter>
+				<action
+					android:name="android.widget.buttons.ButtonWidget.ACTION_WIDGET_CONFIGURE" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".widget.WidgetListSpacesActivity"></activity>
+		<receiver android:name=".IncomingReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="org.ubicollab.ubical.setspace"></action>
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".IncomingReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="org.ubicollab.ubical.getspacelist"></action>
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".IncomingReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="org.ubicollab.ubical.setcurrentspace"></action>
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".IncomingReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="org.ubicollab.ubirule.sendcurrentspace"></action>
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".IncomingReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="org.ubicollab.ubirule.sendspacerules"></action>
+			</intent-filter>
+		</receiver>
+		<receiver android:name=".IncomingReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="org.ubicollab.ubirule.getspacelist"></action>
+			</intent-filter>
+		</receiver>
+
+		<!-- (BOF) HOME TAB ACTIVITIES -->
+		<activity android:name=".home.HomeActivity"></activity>
+		<activity android:name=".home.HomeScreen"></activity>
+		<activity android:name=".home.Home_History"></activity>
+		<activity android:name=".home.CameraView"></activity>
+		<!-- (EOF) HOME TAB ACTIVITIES -->
+
+		<!-- (BOF) MY_SPACES TAB ACTIVITIES -->
+		<activity android:name=".myspaces.MySpacesActivityGroup"
+			android:configChanges="orientation"></activity>
+		<activity android:name=".myspaces.MySpacesActivity"
+			android:configChanges="orientation"></activity>
+		<activity android:name=".myspaces.SpaceInfoActivity"
+			android:configChanges="orientation"></activity>
+		<activity android:name=".myspaces.ModifySpaceActivity"
+			android:configChanges="orientation"></activity>
+		<activity android:name=".myspaces.CreateSpaceActivity"
+			android:configChanges="orientation"></activity>
+		<activity android:name=".myspaces.CreateEntityActivity"
+			android:configChanges="orientation"></activity>
+		<!-- (EOF) MY_SPACES TAB ACTIVITIES -->
+
+		<!-- (BOF) DISCOVER TAB ACTIVITIES -->
+		<activity android:name=".discover.DiscoverActivity"></activity>
+		<activity android:name=".discover.DiscoverGroup"></activity>
+		<!-- (EOF) DISCOVER TAB ACTIVITIES -->
+
+		<!-- (BOF) AUTH -->
+		<activity android:name=".auth.LoginActivity"
+			android:windowSoftInputMode="stateVisible|adjustResize"></activity>
+		<activity android:name=".auth.FrontController"></activity>
+		<!-- (EOF) AUTH -->
+
+		<!-- (BOF) IMPORT -->
+		<activity android:name=".util.ImportActivity">
+		</activity>
+		<!-- (EOF) IMPORT -->
+
+		<!-- (BOF) DEBUG -->
+		<activity android:name=".debug.DebugActivity"></activity>
+		<!-- (EOF) DEBUG -->
+	</application>
+</manifest>
